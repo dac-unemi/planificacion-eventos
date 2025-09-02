@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>PLANIFICACIÓN DE EVENTOS</title>
-  <link rel="icon" type="image/png" href="img/logo-tigre.png">
+  <link rel="icon" type="image/png" href="img/logo-unemi.png">
 
   <!-- Bootstrap 5 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -21,8 +21,17 @@
 
   <style>
     body { font-family: 'Roboto', 'Open Sans', Arial, sans-serif; background-color: #ffffff; color: #1D2B4F; }
-    .logo-tigre { height: 60px; object-fit: contain; }
-    .logo-unemi { height: 50px; object-fit: contain; }
+
+    .logo-tigre {
+      height: 60px;
+      object-fit: contain;
+    }
+
+    .logo-unemi {
+      height: 50px;
+      object-fit: contain;
+    }
+
     .franja-superior { background-color: #1D2B4F; color: white; font-size: 22px; font-weight: bold; }
     .franja-naranja { height: 10px; background-color: #F39200; }
     .titulo-seccion { background-color: #e5e5e5; font-weight: bold; padding: 10px 15px; border-radius: 6px; font-size: 16px; margin-bottom: 20px; }
@@ -30,21 +39,21 @@
   </style>
 </head>
 <body>
-
 <!-- Encabezado -->
 <div class="franja-superior d-flex justify-content-between align-items-center px-3">
   <div class="d-flex align-items-center">
-    <img src="img/logo-tigre.png" alt="Logo Tigre" class="logo-tigre">
+    <img src="img/logo-unemi.png" alt="Logo" class="logo-tigre">
   </div>
   <div class="text-center flex-grow-1">
-    <h2 style="color:white;" class="fw-bold">Planificación de Eventos Institucionales</h2>
+    <h2 class="fw-bold m-2" style="color:white;">Planificación de Eventos</h2>
   </div>
-  <div class="d-flex align-items-center justify-content-end">
-    <img src="img/logo-unemi.png" alt="Logo UNEMI" class="logo-unemi">
+   <div class="d-flex align-items-center justify-content-end">
+    <img src="img/unemi-logo.png" alt="Logo" class="logo-unemi">
   </div>
 </div>
 <div class="franja-naranja"></div>
 
+<!-- Contenido -->
 <div class="container mt-4">
   <div class="form-narrow"><!-- TODO dentro va con el mismo ancho -->
 
@@ -82,8 +91,6 @@
     <input type="email" class="form-control" id="correo" required>
   </div>
 </div>
-
-
      
       <!-- Mismo ancho para el bloque inferior -->
       <div class="titulo-seccion d-flex justify-content-between align-items-center mt-4">
@@ -148,7 +155,7 @@ const tiposPorCategoria = {
     "Momento Cívico"
   ],
   "Eventos Interinstitucionales": ["Firma de convenios interinstitucionales y/o de cooperación interinstitucional","Eventos que sean organizados por otras instituciones"],
-  "Eventos Culturales": ["Ferias emprendedoras", "Festival Internacional de Teatro Uniendo Pueblos FITUP", "Novatada Cultural Institucional"]
+  "Eventos Culturales y Deportivos": ["Ferias emprendedoras", "Festival Internacional de Teatro Uniendo Pueblos FITUP", "Novatada Cultural Institucional","Campeonatos internos y externos"]
 };
 
 // ===== CAMBIO 1: ESTRUCTURA DE DATOS PARA VALIDACIÓN =====
@@ -170,7 +177,12 @@ const tiposPorCategoria = {
 
   "Auditorio A": ["Congresos", "Socialización", "Festival Internacional de Teatro Uniendo Pueblos FITUP","Entrega de Reconocimiento"],
 
-  "Plaza de Integración": ["Ceremonia de bienvenida al inicio de periodo académico", "Casas abiertas de las facultades","Ferias emprendedoras", "Festival Internacional de Teatro Uniendo Pueblos FITUP","Novatada Cultural Institucional"]
+  "Plaza de Integración": ["Ceremonia de bienvenida al inicio de periodo académico", "Casas abiertas de las facultades","Ferias emprendedoras", "Festival Internacional de Teatro Uniendo Pueblos FITUP","Novatada Cultural Institucional"],
+
+  "Polideportivo": ["Campeonatos internos y externos"],
+
+  "Estadio Universitario": ["Campeonatos internos y externos"]
+
 };
 // ===== CAMBIO 1: INVERTIR LA ESTRUCTURA DE DATOS PARA FILTRADO RÁPIDO =====
 // Creamos una nueva estructura (Evento -> Espacios) a partir de la anterior.
@@ -197,7 +209,8 @@ const capacidadesMaximas = {
   "Ágora del Corredor Cultural": 400,
   "Plazoleta": 500,
   "Plaza de Integración": 300 // Asegúrate de que el nombre coincida (¿Integración?)
-};
+  };
+  const espaciosSinLimite = new Set(["Polideportivo", "Estadio Universitario"]);
 
 // Variables globales
 let eventos = [];
@@ -224,33 +237,32 @@ const unidades = [
   {"codigo":17,"text":"Dirección de Obras Universitarias"},
   {"codigo":18,"text":"Centro de Recursos para el Aprendizaje y la Investigación"},
   {"codigo":19,"text":"Dirección de Relaciones Interinstitucionales"},
-  {"codigo":20,"text":"Dirección e Sedes Extenciones y Centros de Apoyo"},
+  {"codigo":20,"text":"Dirección de Sedes Extenciones y Centros de Apoyo"},
   {"codigo":21,"text":"Facultad de Vinculación"},
   {"codigo":22,"text":"Escuela de Formación y Emprendimiento"},
-  {"codigo":23,"text":"Dirección de Servicios Administrativos"},
-  {"codigo":24,"text":"Dirección de Espacios de Simulación"},
-  {"codigo":25,"text":"Centro para la Formación y Promoción del Deporte Universitario"},
-  {"codigo":26,"text":"Consultorio Jurídico Gratuito de la UNEMI"},
-  {"codigo":27,"text":"Facultad de Investigación"},
-  {"codigo":28,"text":"Escuela de Formación en Investigación"},
-  {"codigo":29,"text":"Facultad de Posgrados"},
-  {"codigo":30,"text":"Escuela de Negocios"},
-  {"codigo":31,"text":"Escuela de Educación"},
-  {"codigo":32,"text":"Escuela de Ciencias e Ingenierías"},
-  {"codigo":33,"text":"Escuela de Salud"},
-  {"codigo":34,"text":"Escuela de Derecho"},
-  {"codigo":35,"text":"Escuela de Doctorados"},
-  {"codigo":36,"text":"Dirección de Gestión y Servicios Académicos"},
-  {"codigo":37,"text":"Dirección de Evaluación y Perfeccionamiento Académico"},
-  {"codigo":38,"text":"Dirección de Innovación y Procesos Académicos"},
-  {"codigo":39,"text":"Facultad de Ciencias e Ingenierías"},
-  {"codigo":40,"text":"Facultad de Ciencias Sociales, Educación Comercial y Derecho"},
-  {"codigo":41,"text":"Facultad de Salud y Servicios Sociales"},
-  {"codigo":42,"text":"Facultad de Educación"},
-  {"codigo":43,"text":"Rectorado"},
-  {"codigo":44,"text":"Vicerrectorado de Vinculación"},
-  {"codigo":45,"text":"Vicerrectorado de Investigación y de Posgrado"},
-  {"codigo":46,"text":"Vicerrectorado Académico de Formación de Grado"}
+  {"codigo":23,"text":"Dirección de Espacios de Simulación"},
+  {"codigo":24,"text":"Centro para la Formación y Promoción del Deporte Universitario"},
+  {"codigo":25,"text":"Consultorio Jurídico Gratuito de la UNEMI"},
+  {"codigo":26,"text":"Facultad de Investigación"},
+  {"codigo":27,"text":"Escuela de Formación en Investigación"},
+  {"codigo":28,"text":"Facultad de Posgrados"},
+  {"codigo":29,"text":"Escuela de Negocios"},
+  {"codigo":30,"text":"Escuela de Educación"},
+  {"codigo":31,"text":"Escuela de Ciencias e Ingenierías"},
+  {"codigo":32,"text":"Escuela de Salud"},
+  {"codigo":33,"text":"Escuela de Derecho"},
+  {"codigo":34,"text":"Escuela de Doctorados"},
+  {"codigo":35,"text":"Dirección de Gestión y Servicios Académicos"},
+  {"codigo":36,"text":"Dirección de Evaluación y Perfeccionamiento Académico"},
+  {"codigo":37,"text":"Dirección de Innovación y Procesos Académicos"},
+  {"codigo":38,"text":"Facultad de Ciencias e Ingenierías"},
+  {"codigo":39,"text":"Facultad de Ciencias Sociales, Educación Comercial y Derecho"},
+  {"codigo":40,"text":"Facultad de Salud y Servicios Sociales"},
+  {"codigo":41,"text":"Facultad de Educación"},
+  {"codigo":42,"text":"Rectorado"},
+  {"codigo":43,"text":"Vicerrectorado de Vinculación"},
+  {"codigo":44,"text":"Vicerrectorado de Investigación y de Posgrado"},
+  {"codigo":45,"text":"Vicerrectorado Académico de Formación de Grado"}
 
 ];
 
@@ -335,43 +347,52 @@ $('#departamento').select2({
 }
 
 function actualizarCapacidadParticipantes() {
-    const espacioSelect = document.getElementById("espacio");
-    const participantesInput = document.getElementById("participantes");
-    const espacioSeleccionado = espacioSelect.value;
+  const espacioSelect = document.getElementById("espacio");
+  const participantesInput = document.getElementById("participantes");
+  const espacioSeleccionado = espacioSelect.value;
+
+  // Siempre limpia estado previo
+  participantesInput.value = '';
+  participantesInput.classList.remove('is-invalid');
+  const errorDiv = document.getElementById('error-participantes');
+  if (errorDiv) errorDiv.textContent = '';
 
   // 🔹 Modalidad Virtual: habilitado y sin límite
   if (esVirtual()) {
     participantesInput.disabled = false;
-    participantesInput.placeholder = 'Ingrese número de participantes (sin límite)';
+    participantesInput.placeholder = 'Ingrese número de participantes';
     participantesInput.removeAttribute('max');
     return;
-  } 
-
-
-  // 🔹 Modalidad Presencial o Híbrido
-  if (esPresencialOHibrido()) {
-    // ya tienes la lógica que depende del espacio seleccionado
   }
-    // Limpiamos el valor anterior
-    participantesInput.value = '';
 
-    if (espacioSeleccionado && capacidadesMaximas[espacioSeleccionado]) {
-        const capacidad = capacidadesMaximas[espacioSeleccionado];
-        
-        // Habilitamos el campo
-        participantesInput.disabled = false;
-        
-        // Actualizamos el placeholder como en tu imagen de ejemplo
-        participantesInput.placeholder = `Máximo permitido: ${capacidad}`;
-        
-        // Establecemos el atributo 'max' para la validación nativa del navegador
-        participantesInput.max = capacidad;
-    } else {
-        // Si no se ha seleccionado un espacio válido, lo deshabilitamos
-        participantesInput.disabled = true;
-        participantesInput.placeholder = 'Seleccione un espacio primero';
-        participantesInput.removeAttribute('max'); // Quitamos el límite
-    }
+  // 🔹 Sin espacio seleccionado aún
+  if (!espacioSeleccionado) {
+    participantesInput.disabled = true;
+    participantesInput.placeholder = 'Seleccione un espacio primero';
+    participantesInput.removeAttribute('max');
+    return;
+  }
+
+  // 🔹 Espacios sin límite: permitir ingreso libre (sin max)
+  if (espaciosSinLimite.has(espacioSeleccionado)) {
+    participantesInput.disabled = false;
+    participantesInput.placeholder = 'Ingrese número de participantes';
+    participantesInput.removeAttribute('max');
+    return;
+  }
+
+  // 🔹 Resto de espacios con capacidad definida
+  if (capacidadesMaximas[espacioSeleccionado]) {
+    const capacidad = capacidadesMaximas[espacioSeleccionado];
+    participantesInput.disabled = false;
+    participantesInput.placeholder = `Máximo permitido: ${capacidad}`;
+    participantesInput.max = capacidad;
+  } else {
+    // Si el espacio no está en capacidades ni en sin límite: deshabilitar (caso defensivo)
+    participantesInput.disabled = true;
+    participantesInput.placeholder = 'Seleccione un espacio válido';
+    participantesInput.removeAttribute('max');
+  }
 }
 
 function validarParticipantesEnVivo(input) {
@@ -541,6 +562,21 @@ function mostrarFormularioDetalle(index = -1) {
     actualizarTipoEvento(evento.tipo_evento || "");
     actualizarEspaciosDisponibles(evento.espacio || "");
     actualizarCapacidadParticipantes();
+
+    // === CAMBIO 2: Validar fecha mínima (hoy) para inicio_reserva ===
+    const hoy = hoyISO();
+    const inicioInput = document.getElementById('inicio_reserva');
+    const finInput    = document.getElementById('fin_reserva');
+
+    inicioInput.min = hoy;
+
+    if (inicioInput.value && inicioInput.value < hoy) {
+      inicioInput.value = '';
+    }
+
+    if (finInput.value && inicioInput.value < hoy && finInput.value < inicioInput.value) {
+      finInput.value = '';
+    }
     
     // 🔹 NUEVO: aplica modalidad inmediatamente y escucha cambios
     aplicarModalidadEnDetalle();
@@ -583,7 +619,19 @@ function mostrarFormularioDetalle(index = -1) {
 // Ya no necesitamos la validación aquí porque el usuario no puede cometer el error.
 function guardarEvento() {
 
-       const participantesInput = document.getElementById('participantes');
+const hoy = hoyISO();
+const inicio = document.getElementById("inicio_reserva").value;
+
+if (!inicio || inicio < hoy) {
+  Swal.fire({
+    icon: 'error',
+    title: 'Fecha de inicio inválida',
+    text: 'La fecha de inicio debe ser igual o mayor a la fecha actual.'
+  });
+  return;
+}
+
+    const participantesInput = document.getElementById('participantes');
     const numParticipantes = parseInt(participantesInput.value, 10);
     const capacidadMaxima = parseInt(participantesInput.max, 10);
 
@@ -674,21 +722,41 @@ function cancelarDetalle() {
     }
 }
 
+ function hoyISO() {
+  // “Hoy” a medianoche local en formato YYYY-MM-DD
+  const d = new Date();
+  d.setHours(0,0,0,0);
+  return d.toISOString().split('T')[0];
+}
+
 function validarFechasInicio() {
   const fechaInicioInput = document.getElementById('inicio_reserva');
-  const fechaFinInput = document.getElementById('fin_reserva');
-  const fechaInicio = fechaInicioInput.value;
+  const fechaFinInput    = document.getElementById('fin_reserva');
+  const fechaInicio      = fechaInicioInput.value;
+  const hoy              = hoyISO();
 
   if (fechaInicio) {
-    // Establece la fecha mínima seleccionable en el campo de fecha fin.
+    // No permitir fecha de inicio menor a hoy
+    if (fechaInicio < hoy) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Fecha de inicio inválida',
+        text: 'La fecha de inicio no puede ser anterior a la fecha actual.'
+      });
+      fechaInicioInput.value = '';
+      fechaFinInput.min = '';
+      return;
+    }
+
+    // Establece la fecha mínima de fin = inicio
     fechaFinInput.min = fechaInicio;
 
-    // Si ya había una fecha fin seleccionada y es menor que la nueva fecha de inicio, la borramos.
+    // Si fin < nueva inicio, limpiar fin
     if (fechaFinInput.value && fechaFinInput.value < fechaInicio) {
-      fechaFinInput.value = ''; // Limpia el valor inválido
+      fechaFinInput.value = '';
     }
   } else {
-    // Si se borra la fecha de inicio, quitamos la restricción de la fecha fin.
+    // Si se borra la fecha de inicio, quitar restricción en fin
     fechaFinInput.min = '';
   }
 }
@@ -726,7 +794,6 @@ function esPresencialOHibrido() {
   const sel = document.getElementById('modalidad');
   return sel && (sel.value === 'Presencial' || sel.value === 'Híbrido');
 }
-
 
 // Aplica el comportamiento de modalidad (habilitar/deshabilitar campos en el DETALLE)
 
@@ -814,7 +881,6 @@ function obtenerTiposPermitidosVirtualPorCategoria(cat) {
   return TIPOS_VIRTUAL[cat] || [];
 }
 
-
 // ===== FIN DEL CÓDIGO A AÑADIR =====
 
 function manejarVisibilidadFechaHora() {
@@ -878,6 +944,16 @@ function eliminarEvento(index) {
 
 document.getElementById("formularioEvento").addEventListener("submit", async function(e) {
   e.preventDefault();
+  const hoy = hoyISO();
+const tieneFechasInvalidas = eventos.some(ev => !ev.inicio_reserva || ev.inicio_reserva < hoy);
+if (tieneFechasInvalidas) {
+  Swal.fire({
+    icon: "error",
+    title: "Fechas inválidas",
+    text: "Todos los eventos deben tener fecha de inicio igual o mayor a la fecha actual."
+  });
+  return;
+}
     
   if (eventos.length === 0) {
       Swal.fire({ icon: "warning", title: "Sin eventos", text: "Debe añadir al menos un evento a la lista antes de enviar." });
