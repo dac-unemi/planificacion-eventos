@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<<!DOCTYPE html> 
 <html lang="es">
 <head>
   <meta charset="UTF-8">
@@ -16,22 +16,13 @@
   <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.full.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/i18n/es.js"></script>
 
-    <!-- SweetAlert -->
+  <!-- SweetAlert -->
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
   <style>
     body { font-family: 'Roboto', 'Open Sans', Arial, sans-serif; background-color: #ffffff; color: #1D2B4F; }
-
-    .logo-tigre {
-      height: 60px;
-      object-fit: contain;
-    }
-
-    .logo-unemi {
-      height: 50px;
-      object-fit: contain;
-    }
-
+    .logo-tigre { height: 60px; object-fit: contain; }
+    .logo-unemi { height: 50px; object-fit: contain; }
     .franja-superior { background-color: #1D2B4F; color: white; font-size: 22px; font-weight: bold; }
     .franja-naranja { height: 10px; background-color: #F39200; }
     .titulo-seccion { background-color: #e5e5e5; font-weight: bold; padding: 10px 15px; border-radius: 6px; font-size: 16px; margin-bottom: 20px; }
@@ -42,13 +33,13 @@
 <!-- Encabezado -->
 <div class="franja-superior d-flex justify-content-between align-items-center px-3">
   <div class="d-flex align-items-center">
-    <img src="img/logo-tigre.png" alt="Logo Tigre" class="logo-tigre">
+    <img src="img/logo-unemi.png" alt="Logo UNEMI" class="logo-unemi">
   </div>
   <div class="text-center flex-grow-1">
     <h2 class="fw-bold m-2" style="color:white;">Planificación de Eventos</h2>
   </div>
    <div class="d-flex align-items-center justify-content-end">
-    <img src="img/logo-unemi.png" alt="Logo UNEMI" class="logo-unemi">
+     <img src="img/logo-unemi.png" alt="Logo UNEMI" class="logo-unemi">
   </div>
 </div>
 <div class="franja-naranja"></div>
@@ -60,38 +51,38 @@
     <form id="formularioEvento">
       <div class="titulo-seccion mb-3">DATOS SOLICITANTE</div>
 
-    <!-- 2 campos por fila -->
+      <!-- 2 campos por fila -->
       <div class="row g-3 align-items-end">
         <div class="col-12 col-lg-6">
-         <label class="form-label fw-bold mb-1">Solicitante:</label>
+          <label class="form-label fw-bold mb-1">Solicitante:</label>
           <input type="text" class="form-control" id="solicitante" placeholder="Ingrese el Nombre Completo" required>
         </div>
 
-      <div class="col-12 col-lg-6">
-        <label class="form-label fw-bold mb-1">Modalidad del evento:</label>
+        <div class="col-12 col-lg-6">
+          <label class="form-label fw-bold mb-1">Modalidad del evento:</label>
           <select class="form-select" id="modalidad" required>
             <option value="">Seleccione</option>
             <option value="Presencial" selected>Presencial</option>
             <option value="Virtual">Virtual</option>
             <option value="Híbrido">Híbrido</option>
-         </select>
+          </select>
+        </div>
       </div>
-  </div>
 
-<div class="row g-3 align-items-end mt-0">
-  <div class="col-12 col-lg-6">
-    <label for="departamento" class="form-label fw-bold mb-1">Unidad académica o administrativa:</label>
-    <select class="form-select" id="departamento" required style="width:100%;">
-      <option value="">Seleccione una Unidad</option>
-    </select>
-  </div>
+      <div class="row g-3 align-items-end mt-0">
+        <div class="col-12 col-lg-6">
+          <label for="departamento" class="form-label fw-bold mb-1">Unidad académica o administrativa:</label>
+          <select class="form-select" id="departamento" required style="width:100%;">
+            <option value="">Seleccione una Unidad</option>
+          </select>
+        </div>
 
-  <div class="col-12 col-lg-6">
-    <label class="form-label fw-bold mb-1">Correo institucional:</label>
-    <input type="email" class="form-control" id="correo" required>
-  </div>
-</div>
-     
+        <div class="col-12 col-lg-6">
+          <label class="form-label fw-bold mb-1">Correo institucional:</label>
+          <input type="email" class="form-control" id="correo" required>
+        </div>
+      </div>
+
       <!-- Mismo ancho para el bloque inferior -->
       <div class="titulo-seccion d-flex justify-content-between align-items-center mt-4">
         DETALLE DE EVENTOS
@@ -105,7 +96,7 @@
               <th>Nombre Evento</th>
               <th>Categoría</th>
               <th>Tipo Evento</th>
-              <th>Modalidad</th><!-- NUEVA COLUMNA -->
+              <th>Modalidad</th>
               <th>Espacio</th>
               <th>Fecha Inicio</th>
               <th>Fecha Fin</th>
@@ -119,9 +110,9 @@
         </table>
       </div>
 
-       <div id="contenedorBotonEnviar" class="text-end mt-4" style="display: none;">
-  <button type="submit" class="btn btn-primary">Enviar solicitud</button>
-</div>
+      <div id="contenedorBotonEnviar" class="text-end mt-4" style="display: none;">
+        <button type="submit" class="btn btn-primary">Enviar solicitud</button>
+      </div>
     </form>
 
   </div>
@@ -131,11 +122,8 @@
 <div id="detalleEvento" style="display:none;" class="container mt-4"></div>
 
 <script>
-// Tu URL del script se mantiene igual
-const scriptURL = "https://script.google.com/macros/s/AKfycbwdPB0IAR_w5V2A-vqp3oPtbkARp4dIdda1akAVu34XtlTx5DnVfEKS9GrJfsufXqf0VQ/exec"
-//"https://script.google.com/macros/s/AKfycbzcNVXUXEa0GPt_A-FEXi-Mol3tPgTjR2onS_rXqFyNqFVmbw3_tJWn0nbfBSnf-BwoFA/exec";
+const scriptURL = "https://script.google.com/macros/s/AKfycbwdPB0IAR_w5V2A-vqp3oPtbkARp4dIdda1akAVu34XtlTx5DnVfEKS9GrJfsufXqf0VQ/exec";
 
-// Estructuras de datos originales
 const tiposPorCategoria = {
   "Eventos Solemnes": [
     "Sesión Solemne de Aniversario Institucional",
@@ -158,49 +146,34 @@ const tiposPorCategoria = {
   "Eventos Culturales y Deportivos": ["Ferias emprendedoras", "Festival Internacional de Teatro Uniendo Pueblos FITUP", "Novatada Cultural Institucional","Campeonatos internos y externos"]
 };
 
-// ===== CAMBIO 1: ESTRUCTURA DE DATOS PARA VALIDACIÓN =====
-// Objeto que define qué eventos se permiten en cada espacio.
-// Las claves (nombres de los espacios) están en minúsculas para una comparación robusta.
-  const eventosPorEspacio = {
+// Espacios permitidos por tipo de evento
+const eventosPorEspacio = {
   "Auditorio W": [
     "Sesión Solemne de Aniversario Institucional", "Audiencia Pública de Rendición de Cuentas", "Aniversario de fundación de las facultades",
     "Ceremonia Honoris Causa", "Ceremonias de graduación de grado y posgrado", "Congresos", "Socialización",
     "Entrega de Reconocimiento", "Firma de convenios", "Momento Cívico", "Festival Internacional de Teatro Uniendo Pueblos FITUP", "Eventos que sean organizados por otras instituciones",
-
   ],
-
   "Plazoleta": ["Ceremonia de bienvenida al inicio de periodo académico", "Festival Internacional de Teatro Uniendo Pueblos FITUP", "Casas abiertas de las facultades"],
-
   "Ágora del Corredor Cultural": ["Ferias emprendedoras", "Festival Internacional de Teatro Uniendo Pueblos FITUP", "Novatada Cultural Institucional", "Casas abiertas de las facultades"],
-
   "Auditorio V": ["Congresos", "Socialización", "Entrega de Reconocimiento"],
-
   "Auditorio A": ["Congresos", "Socialización", "Festival Internacional de Teatro Uniendo Pueblos FITUP","Entrega de Reconocimiento"],
-
   "Plaza de Integración": ["Ceremonia de bienvenida al inicio de periodo académico", "Casas abiertas de las facultades","Ferias emprendedoras", "Festival Internacional de Teatro Uniendo Pueblos FITUP","Novatada Cultural Institucional"],
-
   "Polideportivo": ["Campeonatos internos y externos"],
-
   "Estadio Universitario": ["Campeonatos internos y externos"]
-
 };
-// ===== CAMBIO 1: INVERTIR LA ESTRUCTURA DE DATOS PARA FILTRADO RÁPIDO =====
-// Creamos una nueva estructura (Evento -> Espacios) a partir de la anterior.
-// Esto nos permitirá encontrar los espacios válidos para un evento de forma muy eficiente.
+
+// Invertir a (Evento -> Espacios)
 const espaciosPorEvento = {};
 for (const espacio in eventosPorEspacio) {
-    // Obtenemos el nombre del espacio con la capitalización correcta para mostrar al usuario.
-    const nombreEspacioCorrecto = espacio.charAt(0).toUpperCase() + espacio.slice(1).replace(/ a$/, " A").replace(/ v$/, " V").replace(/ w$/, " W");
-    eventosPorEspacio[espacio].forEach(eventoBase => {
-        const eventoNormalizado = eventoBase.trim().toLowerCase();
-        if (!espaciosPorEvento[eventoNormalizado]) {
-            espaciosPorEvento[eventoNormalizado] = [];
-        }
-        espaciosPorEvento[eventoNormalizado].push(nombreEspacioCorrecto);
-    });
+  const nombreEspacioCorrecto = espacio;
+  eventosPorEspacio[espacio].forEach(eventoBase => {
+    const eventoNormalizado = eventoBase.trim().toLowerCase();
+    if (!espaciosPorEvento[eventoNormalizado]) espaciosPorEvento[eventoNormalizado] = [];
+    if (!espaciosPorEvento[eventoNormalizado].includes(nombreEspacioCorrecto)) {
+      espaciosPorEvento[eventoNormalizado].push(nombreEspacioCorrecto);
+    }
+  });
 }
-// AÑADIR DATOS DE CAPACIDAD MÁXIMA  
-// =================================
 
 const capacidadesMaximas = {
   "Auditorio A": 234,
@@ -208,15 +181,15 @@ const capacidadesMaximas = {
   "Auditorio W": 336,
   "Ágora del Corredor Cultural": 400,
   "Plazoleta": 500,
-  "Plaza de Integración": 300 // Asegúrate de que el nombre coincida (¿Integración?)
-  };
-  const espaciosSinLimite = new Set(["Polideportivo", "Estadio Universitario"]);
+  "Plaza de Integración": 300
+};
+const espaciosSinLimite = new Set(["Polideportivo", "Estadio Universitario"]);
 
 // Variables globales
 let eventos = [];
 let editarIndex = -1;
 
-// === Unidades (global) ===
+// Unidades
 const unidades = [
   {"codigo":1,"text":"Dirección de Planificación Institucional"},
   {"codigo":2,"text":"Dirección de Aseguramiento de la Calidad"},
@@ -263,13 +236,11 @@ const unidades = [
   {"codigo":43,"text":"Vicerrectorado de Vinculación"},
   {"codigo":44,"text":"Vicerrectorado de Investigación y de Posgrado"},
   {"codigo":45,"text":"Vicerrectorado Académico de Formación de Grado"}
-
 ];
 
 // === Carga e inicializa Select2 ===
 function cargarUnidades() {
   const select = document.getElementById('departamento');
-  // opciones base
   select.innerHTML = '<option value="">Seleccione una Unidad</option>';
   unidades.forEach(u => {
     const opt = document.createElement('option');
@@ -278,156 +249,179 @@ function cargarUnidades() {
     select.appendChild(opt);
   });
 
-  // (re)inicializar Select2
   if ($(select).hasClass('select2-hidden-accessible')) {
     $(select).select2('destroy');
   }
 
- // NUEVO CÓDIGO (DESPUÉS)
-$('#departamento').select2({
-  theme: 'bootstrap-5',
-  width: '100%',
-  placeholder: 'Seleccione o escriba una Unidad', // Placeholder actualizado
-  allowClear: true,
-  language: 'es',
-  tags: true // ¡ESTA ES LA LÍNEA MÁGICA!
+  $('#departamento').select2({
+    theme: 'bootstrap-5',
+    width: '100%',
+    placeholder: 'Seleccione o escriba una Unidad',
+    allowClear: true,
+    language: 'es',
+    tags: true
   });
 }
 
- function actualizarEspaciosDisponibles(espacioSeleccionadoPreviamente = "") {
-    const tipoEventoSeleccionado = document.getElementById("tipo_evento").value;
-    const espacioSelect = document.getElementById("espacio");
+// >>> VALIDACIÓN OBLIGATORIA: helpers de required condicional
+function isVisible(el) {
+  if (!el) return false;
+  const style = window.getComputedStyle(el);
+  return style.display !== 'none' && style.visibility !== 'hidden';
+}
+function setRequired(el, required) {
+  if (!el) return;
+  if (required) {
+    el.setAttribute('required', 'required');
+  } else {
+    el.removeAttribute('required');
+  }
+}
+function requiredIfEnabledVisible(el, required) {
+  if (!el) return;
+  if (!el.disabled && isVisible(el)) {
+    setRequired(el, required);
+  } else {
+    setRequired(el, false);
+  }
+}
 
-     // 🔹 Modalidad Virtual: no aplica espacio
+/* ====== FIX #1: mantener selección previa de espacio ====== */
+function actualizarEspaciosDisponibles(espacioSeleccionadoPreviamente = "") {
+  const tipoEventoSeleccionado = document.getElementById("tipo_evento").value;
+  const espacioSelect = document.getElementById("espacio");
+
+  // Modalidad Virtual: no aplica espacio
   if (esVirtual()) {
     espacioSelect.innerHTML = '<option value="">No aplica (evento virtual)</option>';
     espacioSelect.disabled = true;
+    requiredIfEnabledVisible(espacioSelect, false);
     return;
   }
 
-    // 🔹 Modalidad Presencial o Híbrido: aplica espacios
-  if (esPresencialOHibrido()) {
-    // (el resto de la lógica actual ya funciona igual que para Presencial)
+  // Presencial o Híbrido
+  if (!tipoEventoSeleccionado) {
+    espacioSelect.innerHTML = '<option value="">Seleccione primero un Tipo de Evento</option>';
+    espacioSelect.disabled = true;
+    requiredIfEnabledVisible(espacioSelect, false);
+    return;
   }
-    // Si no se ha seleccionado un tipo de evento, vaciar y deshabilitar el combo de espacios.
-    if (!tipoEventoSeleccionado) {
-        espacioSelect.innerHTML = '<option value="">Seleccione primero un Tipo de Evento</option>';
-        espacioSelect.disabled = true;
-        return;
+
+  const tipoEventoNormalizado = tipoEventoSeleccionado.toLowerCase();
+  let espaciosValidos = [];
+  for (const eventoBase in espaciosPorEvento) {
+    if (tipoEventoNormalizado.includes(eventoBase)) {
+      espaciosValidos = espaciosPorEvento[eventoBase];
+      break;
     }
+  }
 
-    const tipoEventoNormalizado = tipoEventoSeleccionado.toLowerCase();
-    let espaciosValidos = [];
+  if (espaciosValidos.length > 0) {
+    const opcionesHTML = espaciosValidos.map(e => `<option value="${e}">${e}</option>`).join("");
+    espacioSelect.innerHTML = `<option value="">Seleccione un espacio</option>${opcionesHTML}`;
 
-    // Buscamos la regla que coincida con el evento seleccionado.
-    for (const eventoBase in espaciosPorEvento) {
-        if (tipoEventoNormalizado.includes(eventoBase)) {
-            espaciosValidos = espaciosPorEvento[eventoBase];
-            break; // Encontramos la regla, salimos del bucle.
-        }
+    // ⬇️ garantizar que el valor previo quede seleccionado (aunque no sea válido para el tipo actual)
+    if (espacioSeleccionadoPreviamente && !espaciosValidos.includes(espacioSeleccionadoPreviamente)) {
+      const opt = new Option(`${espacioSeleccionadoPreviamente} (registrado)`, espacioSeleccionadoPreviamente, true, true);
+      opt.dataset.invalid = "1";
+      espacioSelect.add(opt);
     }
+    if (espacioSeleccionadoPreviamente) espacioSelect.value = espacioSeleccionadoPreviamente;
 
-    if (espaciosValidos.length > 0) {
-        // Creamos las nuevas opciones HTML.
-        const opcionesHTML = espaciosValidos
-            .map(e => `<option value="${e}">${e}</option>`)
-            .join("");
-        espacioSelect.innerHTML = `<option value="">Seleccione un espacio</option>${opcionesHTML}`;
-        espacioSelect.disabled = false;
-
-        // Si se pasó un valor para preseleccionar (modo edición), lo seleccionamos.
-        if (espacioSeleccionadoPreviamente) {
-            espacioSelect.value = espacioSeleccionadoPreviamente;
-        }
+    espacioSelect.disabled = false;
+    requiredIfEnabledVisible(espacioSelect, true);
+  } else {
+    // Sin coincidencias: mantener lo registrado para no perderlo
+    if (espacioSeleccionadoPreviamente) {
+      espacioSelect.innerHTML = `<option value="${espacioSeleccionadoPreviamente}">${espacioSeleccionadoPreviamente} (registrado)</option>`;
+      espacioSelect.value = espacioSeleccionadoPreviamente;
+      espacioSelect.disabled = false;
+      requiredIfEnabledVisible(espacioSelect, true);
     } else {
-        // Si no se encontraron espacios válidos para este evento.
-        espacioSelect.innerHTML = '<option value="">No hay espacios disponibles para este evento</option>';
-        espacioSelect.disabled = true;
+      espacioSelect.innerHTML = '<option value="">No hay espacios disponibles para este evento</option>';
+      espacioSelect.disabled = true;
+      requiredIfEnabledVisible(espacioSelect, false);
     }
+  }
 }
 
-function actualizarCapacidadParticipantes() {
+/* ====== FIX #2: no borrar participantes al recalcular; permitir preset ====== */
+function actualizarCapacidadParticipantes(presetValue = null) {
   const espacioSelect = document.getElementById("espacio");
   const participantesInput = document.getElementById("participantes");
   const espacioSeleccionado = espacioSelect.value;
 
-  // Siempre limpia estado previo
-  participantesInput.value = '';
+  // No limpiar el valor existente; solo gestionamos estado/placeholder
   participantesInput.classList.remove('is-invalid');
   const errorDiv = document.getElementById('error-participantes');
   if (errorDiv) errorDiv.textContent = '';
 
-  // 🔹 Modalidad Virtual: habilitado y sin límite
   if (esVirtual()) {
     participantesInput.disabled = false;
     participantesInput.placeholder = 'Ingrese número de participantes';
     participantesInput.removeAttribute('max');
+    if (presetValue !== null && presetValue !== '') participantesInput.value = presetValue;
+    requiredIfEnabledVisible(participantesInput, true);
     return;
   }
 
-  // 🔹 Sin espacio seleccionado aún
   if (!espacioSeleccionado) {
     participantesInput.disabled = true;
     participantesInput.placeholder = 'Seleccione un espacio primero';
     participantesInput.removeAttribute('max');
+    requiredIfEnabledVisible(participantesInput, false);
     return;
   }
 
-  // 🔹 Espacios sin límite: permitir ingreso libre (sin max)
   if (espaciosSinLimite.has(espacioSeleccionado)) {
     participantesInput.disabled = false;
     participantesInput.placeholder = 'Ingrese número de participantes';
     participantesInput.removeAttribute('max');
+    if (presetValue !== null && presetValue !== '') participantesInput.value = presetValue;
+    requiredIfEnabledVisible(participantesInput, true);
     return;
   }
 
-  // 🔹 Resto de espacios con capacidad definida
   if (capacidadesMaximas[espacioSeleccionado]) {
     const capacidad = capacidadesMaximas[espacioSeleccionado];
     participantesInput.disabled = false;
     participantesInput.placeholder = `Máximo permitido: ${capacidad}`;
     participantesInput.max = capacidad;
+    if (presetValue !== null && presetValue !== '') participantesInput.value = presetValue;
+    requiredIfEnabledVisible(participantesInput, true);
   } else {
-    // Si el espacio no está en capacidades ni en sin límite: deshabilitar (caso defensivo)
-    participantesInput.disabled = true;
-    participantesInput.placeholder = 'Seleccione un espacio válido';
+    // Espacio sin capacidad conocida: permitir y conservar valor
+    participantesInput.disabled = false;
+    participantesInput.placeholder = 'Ingrese número de participantes';
     participantesInput.removeAttribute('max');
+    if (presetValue !== null && presetValue !== '') participantesInput.value = presetValue;
+    requiredIfEnabledVisible(participantesInput, true);
   }
 }
 
 function validarParticipantesEnVivo(input) {
-    // Obtenemos la referencia al div donde mostraremos el error.
-    const errorDiv = document.getElementById('error-participantes');
+  const errorDiv = document.getElementById('error-participantes');
+  if (!errorDiv) return;
 
-    // Si por alguna razón no existe el div, salimos para evitar errores.
-    if (!errorDiv) return;
+  const numeroIngresado = parseInt(input.value, 10);
+  const capacidadMaxima = parseInt(input.max, 10);
 
-    const numeroIngresado = parseInt(input.value, 10);
-    const capacidadMaxima = parseInt(input.max, 10);
-
-    // Verificamos si hay un valor ingresado y si es un número válido.
-    if (!isNaN(numeroIngresado) && !isNaN(capacidadMaxima)) {
-        if (numeroIngresado > capacidadMaxima) {
-            // Si el número es mayor al máximo, mostramos el mensaje de error.
-            errorDiv.textContent = `El máximo permitido es ${capacidadMaxima}.`;
-            // Opcional: añade una clase para resaltar el borde del input en rojo
-            input.classList.add('is-invalid');
-        } else {
-            // Si el número es válido (menor o igual al máximo), borramos el mensaje.
-            errorDiv.textContent = '';
-            // Y quitamos la clase de error del input
-            input.classList.remove('is-invalid');
-        }
+  if (!isNaN(numeroIngresado) && !isNaN(capacidadMaxima)) {
+    if (numeroIngresado > capacidadMaxima) {
+      errorDiv.textContent = `El máximo permitido es ${capacidadMaxima}.`;
+      input.classList.add('is-invalid');
     } else {
-        // Si el campo está vacío o no es un número, también borramos el mensaje.
-        errorDiv.textContent = '';
-        input.classList.remove('is-invalid');
+      errorDiv.textContent = '';
+      input.classList.remove('is-invalid');
     }
-} 
+  } else {
+    errorDiv.textContent = '';
+    input.classList.remove('is-invalid');
+  }
+}
 
+/* ====== FIX #3: flujo de edición preservando valores ====== */
 function mostrarFormularioDetalle(index = -1) {
-  // ===== AÑADIR ESTA LÍNEA AQUÍ =====
-  // Oculta el botón principal 'Enviar solicitud' mientras se edita/añade un evento.
   document.getElementById("contenedorBotonEnviar").style.display = "none";
 
   editarIndex = index;
@@ -437,57 +431,53 @@ function mostrarFormularioDetalle(index = -1) {
     .map(cat => `<option value="${cat}" ${evento.categoria === cat ? "selected" : ""}>${cat}</option>`)
     .join("");
 
-    // El combo de espacios ahora se genera vacío, se llenará dinámicamente.
-    document.getElementById('detalleEvento').innerHTML = `
-        <div class="titulo-seccion">DETALLE DEL EVENTO</div>
-        <div class="row mb-3">
-          <div class="col-md-6">
-            <label class="form-label">Categoría</label>
-            <select class="form-select" id="categoria" onchange="actualizarTipoEvento()" required>
-              <option value="">Seleccione</option>
-              ${opcionesCategorias}
-            </select>
-          </div>
-          <div class="col-md-6">
-            <label class="form-label">Tipo Evento</label>
-            <!-- ===== CAMBIO 3: INTEGRACIÓN - Se llama a la nueva función al cambiar el tipo de evento ===== -->
-            <select class="form-select" id="tipo_evento" required onchange="manejarVisibilidadFechaHora(); actualizarEspaciosDisponibles();"></select>
-          </div>
-        </div>
-
-        <div class="row mb-3">
-            <div class="col-md-6">
-                <label class="form-label">Nombre Evento</label>
-                <input type="text" class="form-control" id="nombre_evento" value="${evento.nombre_evento || ''}" required>
-            </div>
-           <div class="col-md-6">
-            <label class="form-label">Alcance</label>
-            <select class="form-select" id="alcance" required>
-                <option value="">Seleccione</option>
-                <option value="Nacional" ${evento.alcance === 'Nacional' ? 'selected' : ''}>Nacional</option>
-                <option value="Internacional" ${evento.alcance === 'Internacional' ? 'selected' : ''}>Internacional</option>
-            </select>
-          </div>            
-        </div>
-      
-        <div class="row mb-3">
-         <div class="col-md-6">
-          <label class="form-label">Nombre Espacio</label>
-            <!-- PASO 3.1: Se añade onchange para llamar a la nueva función -->
-            <select class="form-select" id="espacio" required disabled onchange="actualizarCapacidadParticipantes()">
-            <option value="">Seleccione primero un Tipo de Evento</option>
-            </select>
-        </div>
-        <div class="col-md-6">
-          <label class="form-label">Número de participantes:</label>
-            <!-- PASO 3.2: Se inicia deshabilitado, se añade placeholder y min="1" -->
-            <input type="number" class="form-control" id="participantes" value="${evento.participantes || ''}" 
-               placeholder="Seleccione un espacio primero" min="1" disabled required oninput="validarParticipantesEnVivo(this)">
-          <div id="error-participantes" class="form-text text-danger"></div>
-        </div>
+  document.getElementById('detalleEvento').innerHTML = `
+    <div class="titulo-seccion">DETALLE DEL EVENTO</div>
+    <div class="row mb-3">
+      <div class="col-md-6">
+        <label class="form-label">Categoría</label>
+        <select class="form-select" id="categoria" onchange="actualizarTipoEvento()" required>
+          <option value="">Seleccione</option>
+          ${opcionesCategorias}
+        </select>
       </div>
+      <div class="col-md-6">
+        <label class="form-label">Tipo Evento</label>
+        <select class="form-select" id="tipo_evento" required onchange="manejarVisibilidadFechaHora(); actualizarEspaciosDisponibles(document.getElementById('espacio').value || '');"></select>
+      </div>
+    </div>
 
-        <div class="row mb-3" id="contenedorFechasHoras">
+    <div class="row mb-3">
+      <div class="col-md-6">
+        <label class="form-label">Nombre Evento</label>
+        <input type="text" class="form-control" id="nombre_evento" value="${evento.nombre_evento || ''}" required>
+      </div>
+      <div class="col-md-6">
+        <label class="form-label">Alcance</label>
+        <select class="form-select" id="alcance" required>
+          <option value="">Seleccione</option>
+          <option value="Nacional" ${evento.alcance === 'Nacional' ? 'selected' : ''}>Nacional</option>
+          <option value="Internacional" ${evento.alcance === 'Internacional' ? 'selected' : ''}>Internacional</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <div class="col-md-6">
+        <label class="form-label">Nombre Espacio</label>
+        <select class="form-select" id="espacio" required disabled onchange="actualizarCapacidadParticipantes()">
+          <option value="">Seleccione primero un Tipo de Evento</option>
+        </select>
+      </div>
+      <div class="col-md-6">
+        <label class="form-label">Número de participantes:</label>
+        <input type="number" class="form-control" id="participantes" value="${evento.participantes || ''}"
+          placeholder="Seleccione un espacio primero" min="1" disabled required oninput="validarParticipantesEnVivo(this)">
+        <div id="error-participantes" class="form-text text-danger"></div>
+      </div>
+    </div>
+
+    <div class="row mb-3" id="contenedorFechasHoras">
       <div class="col-md-3">
         <label class="form-label">Fecha Inicio</label>
         <input type="date" class="form-control" id="inicio_reserva" value="${evento.inicio_reserva || ''}" required onchange="validarFechasInicio()">
@@ -524,67 +514,79 @@ function mostrarFormularioDetalle(index = -1) {
       </div>
     </div>
 
-    <!-- ========================================================== -->
-    <!--          NUEVO BLOQUE DE TÉRMINOS Y CONDICIONES          -->
-    <!-- ========================================================== -->
     <div class="row mb-3">
       <div class="col-12">
         <div class="form-check">
           <input class="form-check-input" type="checkbox" id="terminos" required/>
-            <label class="form-check-label texto-mediano" for="terminos">
-        Acepto los 
-        <a href="https://docs.google.com/document/d/1PNRoHcDD0k8BwewJDjTy6VdTOtCmurF_/edit?usp=drive_link&ouid=110049633757378533995&rtpof=true&sd=true"
-           target="_blank" rel="noopener noreferrer">
-          Términos y Condiciones
-        </a>
-        y el 
-        <a href="https://drive.google.com/file/d/1nQ1PjQqttC3Ho_ONk7p7AFIMt6Ok3NWL/view?usp=drive_link"
-           target="_blank" rel="noopener noreferrer">
-          Protocolo para el Desarrollo de Eventos
-        </a>.
-      </label>
-       <div class="form-text">
-        Debe aceptar esta casilla para poder enviar la solicitud.
+          <label class="form-check-label texto-mediano" for="terminos">
+            Acepto los 
+            <a href="https://docs.google.com/document/d/1PNRoHcDD0k8BwewJDjTy6VdTOtCmurF_/edit?usp=drive_link&ouid=110049633757378533995&rtpof=true&sd=true"
+               target="_blank" rel="noopener noreferrer">
+              Términos y Condiciones
+            </a>
+            y el 
+            <a href="https://drive.google.com/file/d/1nQ1PjQqttC3Ho_ONk7p7AFIMt6Ok3NWL/view?usp=drive_link"
+               target="_blank" rel="noopener noreferrer">
+              Protocolo para el Desarrollo de Eventos
+            </a>.
+          </label>
+          <div class="form-text">
+            Debe aceptar esta casilla para poder enviar la solicitud.
+          </div>
         </div>
       </div>
     </div>
+
     <div class="text-end">
       <button type="button" class="btn btn-secondary" onclick="cancelarDetalle()">Cancelar</button>
       <button type="button" class="btn btn-success" onclick="guardarEvento()">Guardar Evento</button>
     </div>
   `;
-  
-  document.getElementById('celular').addEventListener('input', function (e) { this.value = this.value.replace(/[^0-9]/g, ''); });
-  
+
+  document.getElementById('celular').addEventListener('input', function (e) {
+    this.value = this.value.replace(/[^0-9]/g, '');
+  });
+
   document.getElementById("detalleEvento").style.display = "block";
 
-    // Llenamos el combo de tipo de evento y LUEGO actualizamos los espacios disponibles
-    actualizarTipoEvento(evento.tipo_evento || "");
-    actualizarEspaciosDisponibles(evento.espacio || "");
-    actualizarCapacidadParticipantes();
+  // 1) Poblar tipo según categoría
+  actualizarTipoEvento(evento.tipo_evento || "");
 
-    // === CAMBIO 2: Validar fecha mínima (hoy) para inicio_reserva ===
-    const hoy = hoyISO();
-    const inicioInput = document.getElementById('inicio_reserva');
-    const finInput    = document.getElementById('fin_reserva');
-
-    inicioInput.min = hoy;
-
-    if (inicioInput.value && inicioInput.value < hoy) {
-      inicioInput.value = '';
+  // 2) Restaurar espacio (si no existe en lista, se agrega como "(registrado)")
+  const selEspacio = document.getElementById('espacio');
+  actualizarEspaciosDisponibles(evento.espacio || "");
+  if (evento.espacio) {
+    selEspacio.value = evento.espacio;
+    if (selEspacio.value !== evento.espacio) {
+      const opt = new Option(`${evento.espacio} (registrado)`, evento.espacio, true, true);
+      opt.dataset.invalid = "1";
+      selEspacio.add(opt);
+      selEspacio.value = evento.espacio;
     }
+  }
 
-    if (finInput.value && inicioInput.value < hoy && finInput.value < inicioInput.value) {
-      finInput.value = '';
-    }
-    
-    // 🔹 NUEVO: aplica modalidad inmediatamente y escucha cambios
+  // 3) Restaurar participantes respetando capacidad/estado
+  actualizarCapacidadParticipantes(evento.participantes || "");
+
+  const hoy = hoyISO();
+  const inicioInput = document.getElementById('inicio_reserva');
+  const finInput    = document.getElementById('fin_reserva');
+  inicioInput.min = hoy;
+
+  if (inicioInput.value && inicioInput.value < hoy) inicioInput.value = '';
+  if (finInput.value && inicioInput.value < hoy && finInput.value < inicioInput.value) finInput.value = '';
+
+  // Si cambia la modalidad, aplicamos y volvemos a preservar los campos
+  document.getElementById('modalidad').addEventListener('change', () => {
     aplicarModalidadEnDetalle();
-    document.getElementById('modalidad').addEventListener('change', () => {
-    aplicarModalidadEnDetalle();
-});
+    actualizarEspaciosDisponibles(selEspacio.value || "");
+    actualizarCapacidadParticipantes(document.getElementById('participantes').value || "");
+  });
+
+  aplicarRequiredContextual();
 }
-  function actualizarTipoEvento(seleccionada = "") {
+
+function actualizarTipoEvento(seleccionada = "") {
   const categoriaSel = document.getElementById("categoria").value;
   const tipo_evento = document.getElementById("tipo_evento");
   if (!tipo_evento) return;
@@ -592,12 +594,10 @@ function mostrarFormularioDetalle(index = -1) {
   let opcionesLista = [];
 
   if (esVirtual()) {
-    // En virtual, usar SOLO los tipos permitidos de la categoría actualmente elegida
     const cat = categoriaSel || (obtenerCategoriasPermitidasVirtual()[0] || "");
     const tiposPermitidos = obtenerTiposPermitidosVirtualPorCategoria(cat);
     opcionesLista = tiposPermitidos;
   } else {
-    // Presencial o Híbrido: usa normalmente los tipos por categoría global
     if (!categoriaSel) {
       tipo_evento.innerHTML = `<option value="">Seleccione</option>`;
       return;
@@ -612,77 +612,72 @@ function mostrarFormularioDetalle(index = -1) {
   tipo_evento.innerHTML = `<option value="">Seleccione</option>${opcionesHTML}`;
 
   manejarVisibilidadFechaHora();
-  actualizarEspaciosDisponibles();
+
+  // ⬇️ conservar la selección actual de espacio al recalcular
+  const espacioActual = document.getElementById('espacio')?.value || "";
+  actualizarEspaciosDisponibles(espacioActual);
+
+  aplicarRequiredContextual();
 }
 
-
-// Ya no necesitamos la validación aquí porque el usuario no puede cometer el error.
 function guardarEvento() {
+  const hoy = hoyISO();
+  const inicio = document.getElementById("inicio_reserva").value;
 
-const hoy = hoyISO();
-const inicio = document.getElementById("inicio_reserva").value;
+  if (!inicio || inicio < hoy) {
+    Swal.fire({ icon: 'error', title: 'Fecha de inicio inválida', text: 'La fecha de inicio debe ser igual o mayor a la fecha actual.' });
+    return;
+  }
 
-if (!inicio || inicio < hoy) {
-  Swal.fire({
-    icon: 'error',
-    title: 'Fecha de inicio inválida',
-    text: 'La fecha de inicio debe ser igual o mayor a la fecha actual.'
-  });
-  return;
-}
+  const participantesInput = document.getElementById('participantes');
+  const numParticipantes = parseInt(participantesInput.value, 10);
+  const capacidadMaxima = parseInt(participantesInput.max, 10);
 
-    const participantesInput = document.getElementById('participantes');
-    const numParticipantes = parseInt(participantesInput.value, 10);
-    const capacidadMaxima = parseInt(participantesInput.max, 10);
+  if (!participantesInput.disabled && !isNaN(numParticipantes) && !isNaN(capacidadMaxima) && numParticipantes > capacidadMaxima) {
+    Swal.fire({
+      icon: 'error',
+      title: 'Capacidad Excedida',
+      text: `El número de participantes (${numParticipantes}) no puede ser mayor que el máximo permitido de ${capacidadMaxima} para este espacio.`
+    });
+    return;
+  }
 
-    if (!isNaN(numParticipantes) && !isNaN(capacidadMaxima) && numParticipantes > capacidadMaxima) {
-        Swal.fire({
-            icon: 'error',
-            title: 'Capacidad Excedida',
-            text: `El número de participantes (${numParticipantes}) no puede ser mayor que el máximo permitido de ${capacidadMaxima} para este espacio.`
-        });
-        return; // Detiene la ejecución de la función
-    } 
+  const chkTerminos = document.getElementById('terminos');
+  if (!chkTerminos || !chkTerminos.checked) {
+    Swal.fire({ icon: 'warning', title: 'Debe aceptar los Términos y Condiciones', text: 'Marque la casilla "Acepto los Términos y Condiciones" para continuar.' });
+    return;
+  }
 
-const chkTerminos = document.getElementById('terminos');
-if (!chkTerminos || !chkTerminos.checked) {
-  Swal.fire({
-    icon: 'warning',
-    title: 'Debe aceptar los Términos y Condiciones',
-    text: 'Marque la casilla "Acepto los Términos y Condiciones" para continuar.'
-  });
-  return;
-}
   const celularInput = document.getElementById("celular");
   const celularRegex = /^[0-9]{10}$/;
-
   if (!celularRegex.test(celularInput.value)) {
     Swal.fire({ icon: 'error', title: 'Celular no válido', text: 'Por favor, ingrese un número de celular que contenga exactamente 10 dígitos.' });
     celularInput.focus();
     return;
   }
-  if (esVirtual()) {
-  const cat = document.getElementById("categoria").value;
-  const tipo = document.getElementById("tipo_evento").value;
-  const catsPerm = obtenerCategoriasPermitidasVirtual();
-  const tiposPerm = obtenerTiposPermitidosVirtualPorCategoria(cat);
 
-  if (!catsPerm.includes(cat) || !tiposPerm.includes(tipo)) {
-    Swal.fire({
-      icon: 'error',
-      title: 'Tipo no permitido en modalidad Virtual',
-      text: 'En modalidad Virtual solo se permiten categorías y tipos definidos para “Eventos Institucionales” y “Eventos Solemnes”.'
-    });
-    return;
+  if (!validarCamposDetalleObligatorios()) return;
+
+  if (esVirtual()) {
+    const cat = document.getElementById("categoria").value;
+    const tipo = document.getElementById("tipo_evento").value;
+    const catsPerm = obtenerCategoriasPermitidasVirtual();
+    const tiposPerm = obtenerTiposPermitidosVirtualPorCategoria(cat);
+    if (!catsPerm.includes(cat) || !tiposPerm.includes(tipo)) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Tipo no permitido en modalidad Virtual',
+        text: 'En modalidad Virtual solo se permiten categorías y tipos definidos para “Eventos Institucionales” y “Eventos Solemnes”.'
+      });
+      return;
+    }
   }
-}
-   
-  // La validación de espacio ya no es necesaria aquí.
+
   const evento = {
     categoria: document.getElementById("categoria").value,
     tipo_evento: document.getElementById("tipo_evento").value,
     nombre_evento: document.getElementById("nombre_evento").value,
-    modalidad: document.getElementById("modalidad").value, // 🔹 NUEVO
+    modalidad: document.getElementById("modalidad").value,
     espacio: document.getElementById("espacio").value,
     inicio_reserva: document.getElementById("inicio_reserva").value,
     hora_inicio: document.getElementById("hora_inicio").value,
@@ -692,7 +687,7 @@ if (!chkTerminos || !chkTerminos.checked) {
     alcance: document.getElementById("alcance").value,
     objeto_reserva: document.getElementById("objeto_reserva").value,
     responsable_espacio: document.getElementById("responsable_espacio").value,
-    celular: "'" + celularInput.value 
+    celular: "'" + celularInput.value
   };
 
   if (editarIndex >= 0) {
@@ -705,25 +700,19 @@ if (!chkTerminos || !chkTerminos.checked) {
   document.getElementById("detalleEvento").innerHTML = "";
   mostrarTablaResumen();
 
-    // ===== AÑADIR ESTA LÍNEA AQUÍ =====
-  // Si hay al menos un evento en la lista, muestra el botón de enviar.
   if (eventos.length > 0) {
     document.getElementById("contenedorBotonEnviar").style.display = "block";
   }
 }
 
-
 function cancelarDetalle() {
-    document.getElementById("detalleEvento").style.display = "none";
-     // ===== AÑADIR ESTA LÓGICA AQUÍ =====
-    // Al cancelar, también se debe mostrar el botón de enviar si hay eventos en la lista.
-    if (eventos.length > 0) {
-      document.getElementById("contenedorBotonEnviar").style.display = "block";
-    }
+  document.getElementById("detalleEvento").style.display = "none";
+  if (eventos.length > 0) {
+    document.getElementById("contenedorBotonEnviar").style.display = "block";
+  }
 }
 
- function hoyISO() {
-  // “Hoy” a medianoche local en formato YYYY-MM-DD
+function hoyISO() {
   const d = new Date();
   d.setHours(0,0,0,0);
   return d.toISOString().split('T')[0];
@@ -736,57 +725,35 @@ function validarFechasInicio() {
   const hoy              = hoyISO();
 
   if (fechaInicio) {
-    // No permitir fecha de inicio menor a hoy
     if (fechaInicio < hoy) {
-      Swal.fire({
-        icon: 'error',
-        title: 'Fecha de inicio inválida',
-        text: 'La fecha de inicio no puede ser anterior a la fecha actual.'
-      });
+      Swal.fire({ icon: 'error', title: 'Fecha de inicio inválida', text: 'La fecha de inicio no puede ser anterior a la fecha actual.' });
       fechaInicioInput.value = '';
       fechaFinInput.min = '';
       return;
     }
-
-    // Establece la fecha mínima de fin = inicio
     fechaFinInput.min = fechaInicio;
-
-    // Si fin < nueva inicio, limpiar fin
     if (fechaFinInput.value && fechaFinInput.value < fechaInicio) {
       fechaFinInput.value = '';
     }
   } else {
-    // Si se borra la fecha de inicio, quitar restricción en fin
     fechaFinInput.min = '';
   }
 }
 
-/**
- * Función que se activa al cambiar la Fecha de Fin.
- * Muestra una alerta si la fecha de fin es anterior a la de inicio.
- */
 function validarFechasFin() {
   const fechaInicioInput = document.getElementById('inicio_reserva');
   const fechaFinInput = document.getElementById('fin_reserva');
   const fechaInicio = fechaInicioInput.value;
   const fechaFin = fechaFinInput.value;
-
-  // Solo validamos si ambas fechas tienen un valor.
   if (fechaInicio && fechaFin) {
-    // new Date() convierte el string 'YYYY-MM-DD' a un objeto de fecha comparable.
     if (new Date(fechaFin) < new Date(fechaInicio)) {
-      Swal.fire({
-        icon: 'error',
-        title: 'Fecha Incorrecta',
-        text: 'La fecha de fin no puede ser anterior a la fecha de inicio.'
-      });
-      // Limpiamos el campo de fecha fin para forzar al usuario a elegir una fecha válida.
+      Swal.fire({ icon: 'error', title: 'Fecha Incorrecta', text: 'La fecha de fin no puede ser anterior a la fecha de inicio.' });
       fechaFinInput.value = '';
     }
   }
 }
 
-  function esVirtual() {
+function esVirtual() {
   const sel = document.getElementById('modalidad');
   return sel && sel.value === 'Virtual';
 }
@@ -795,70 +762,47 @@ function esPresencialOHibrido() {
   return sel && (sel.value === 'Presencial' || sel.value === 'Híbrido');
 }
 
-// Aplica el comportamiento de modalidad (habilitar/deshabilitar campos en el DETALLE)
-
 function aplicarModalidadEnDetalle() {
   const espacioSelect = document.getElementById("espacio");
   const participantesInput = document.getElementById("participantes");
   const categoriaSelect = document.getElementById("categoria");
   const tipoEventoSelect = document.getElementById("tipo_evento");
-
   if (!espacioSelect || !participantesInput || !categoriaSelect || !tipoEventoSelect) return;
 
   if (esVirtual()) {
-    // 1) Limitar categorías a las permitidas en virtual y habilitar selección
     const catsPerm = obtenerCategoriasPermitidasVirtual();
-    categoriaSelect.innerHTML = `<option value="">Seleccione</option>` +
-      catsPerm.map(c => `<option value="${c}">${c}</option>`).join("");
+    categoriaSelect.innerHTML = `<option value="">Seleccione</option>` + catsPerm.map(c => `<option value="${c}">${c}</option>`).join("");
     categoriaSelect.disabled = false;
+    if (!catsPerm.includes(categoriaSelect.value)) categoriaSelect.value = catsPerm[0];
 
-    // Si la categoría actual no es válida, preselecciona la primera
-    if (!catsPerm.includes(categoriaSelect.value)) {
-      categoriaSelect.value = catsPerm[0];
-    }
-
-    // 2) Cargar tipos según la categoría seleccionada
     const tipos = obtenerTiposPermitidosVirtualPorCategoria(categoriaSelect.value);
-    tipoEventoSelect.innerHTML = `<option value="">Seleccione</option>` +
-      tipos.map(t => `<option value="${t}">${t}</option>`).join("");
+    tipoEventoSelect.innerHTML = `<option value="">Seleccione</option>` + tipos.map(t => `<option value="${t}">${t}</option>`).join("");
 
-    // 3) Espacio: no aplica (deshabilitado)
     espacioSelect.value = "";
     espacioSelect.disabled = true;
     espacioSelect.innerHTML = '<option value="">No aplica (evento virtual)</option>';
 
-    // 4) Participantes: habilitado y sin límite
     participantesInput.disabled = false;
     participantesInput.placeholder = "Ingrese número de participantes (sin límite)";
     participantesInput.removeAttribute('max');
 
-    // 5) Al cambiar la categoría en virtual, refrescar los tipos
     categoriaSelect.onchange = () => {
       const tipos2 = obtenerTiposPermitidosVirtualPorCategoria(categoriaSelect.value);
-      tipoEventoSelect.innerHTML = `<option value="">Seleccione</option>` +
-        tipos2.map(t => `<option value="${t}">${t}</option>`).join("");
-      // Mantener reglas de fechas/horas
+      tipoEventoSelect.innerHTML = `<option value="">Seleccione</option>` + tipos2.map(t => `<option value="${t}">${t}</option>`).join("");
       manejarVisibilidadFechaHora();
+      aplicarRequiredContextual();
     };
-
-  } 
-   else {
-    // Volver a habilitar categoría
+  } else {
     categoriaSelect.disabled = false;
-
-    // Reconstruir tipos según categoría actual
     actualizarTipoEvento(tipoEventoSelect.value || "");
-
-    // Espacio vuelve a depender del tipo de evento
     espacioSelect.disabled = false;
     actualizarEspaciosDisponibles(espacioSelect.value || "");
-
-    // Participantes vuelven a depender del espacio
-    actualizarCapacidadParticipantes();
+    actualizarCapacidadParticipantes(document.getElementById('participantes').value || "");
   }
+
+  aplicarRequiredContextual();
 }
 
- // Categorías y tipos PERMITIDOS cuando la modalidad es Virtual
 const TIPOS_VIRTUAL = {
   "Eventos Institucionales": [
     "Congresos, seminarios, simposios, encuentros, foros, talleres o jornadas, entre otros.",
@@ -873,40 +817,29 @@ const TIPOS_VIRTUAL = {
     "Ceremonia Honoris Causa"
   ]
 };
-
-function obtenerCategoriasPermitidasVirtual() {
-  return Object.keys(TIPOS_VIRTUAL);
-}
-function obtenerTiposPermitidosVirtualPorCategoria(cat) {
-  return TIPOS_VIRTUAL[cat] || [];
-}
-
-// ===== FIN DEL CÓDIGO A AÑADIR =====
+function obtenerCategoriasPermitidasVirtual() { return Object.keys(TIPOS_VIRTUAL); }
+function obtenerTiposPermitidosVirtualPorCategoria(cat) { return TIPOS_VIRTUAL[cat] || []; }
 
 function manejarVisibilidadFechaHora() {
-    const categoria = document.getElementById("categoria").value;
-    const tipoEvento = document.getElementById("tipo_evento").value;
-    const contenedor = document.getElementById("contenedorFechasHoras");
-    
-    const campos = [
-        document.getElementById("inicio_reserva"),
-        document.getElementById("fin_reserva"),
-        document.getElementById("hora_inicio"),
-        document.getElementById("hora_fin")
-    ];
+  const categoria = document.getElementById("categoria").value;
+  const tipoEvento = document.getElementById("tipo_evento").value;
+  const contenedor = document.getElementById("contenedorFechasHoras");
+  const campos = [
+    document.getElementById("inicio_reserva"),
+    document.getElementById("fin_reserva"),
+    document.getElementById("hora_inicio"),
+    document.getElementById("hora_fin")
+  ];
 
-    if (categoria === "Eventos Solemnes" && tipoEvento === "Ceremonias de graduación de grado y posgrado") {
-        contenedor.style.display = "none";
-        campos.forEach(campo => {
-            campo.required = false;
-            campo.value = "";
-        });
-    } else {
-        contenedor.style.display = "flex";
-        campos.forEach(campo => {
-            campo.required = true;
-        });
-    }
+  if (categoria === "Eventos Solemnes" && tipoEvento === "Ceremonias de graduación de grado y posgrado") {
+    contenedor.style.display = "none";
+    campos.forEach(campo => { campo.required = false; campo.value = ""; });
+  } else {
+    contenedor.style.display = "flex";
+    campos.forEach(campo => { campo.required = true; });
+  }
+
+  aplicarRequiredContextual();
 }
 
 function mostrarTablaResumen() {
@@ -916,7 +849,7 @@ function mostrarTablaResumen() {
       <td>${e.nombre_evento}</td>
       <td>${e.categoria}</td>
       <td>${e.tipo_evento}</td>
-      <td>${e.modalidad || 'Presencial'}</td><!-- NUEVO -->
+      <td>${e.modalidad || 'Presencial'}</td>
       <td>${e.espacio || (e.modalidad === 'Virtual' ? 'No aplica' : '')}</td>
       <td>${e.inicio_reserva}</td>
       <td>${e.fin_reserva}</td>
@@ -934,30 +867,98 @@ function mostrarTablaResumen() {
 function eliminarEvento(index) {
   eventos.splice(index, 1);
   mostrarTablaResumen();
-
-  // ===== AÑADIR ESTA LÓGICA AQUÍ =====
-  // Si la lista de eventos queda vacía, oculta el botón de enviar.
   if (eventos.length === 0) {
     document.getElementById("contenedorBotonEnviar").style.display = "none";
   }
 }
 
+// >>> VALIDACIÓN OBLIGATORIA: aplica required correctamente cada vez que cambia el contexto
+function aplicarRequiredContextual() {
+  const espacio = document.getElementById('espacio');
+  const participantes = document.getElementById('participantes');
+  const contenedor = document.getElementById('contenedorFechasHoras');
+  const inicio = document.getElementById('inicio_reserva');
+  const fin = document.getElementById('fin_reserva');
+  const hi = document.getElementById('hora_inicio');
+  const hf = document.getElementById('hora_fin');
+
+  requiredIfEnabledVisible(espacio, !esVirtual());
+  requiredIfEnabledVisible(participantes, true);
+
+  const fechasVisibles = isVisible(contenedor) && contenedor.style.display !== 'none';
+  setRequired(inicio, fechasVisibles);
+  setRequired(fin, fechasVisibles);
+  setRequired(hi, fechasVisibles);
+  setRequired(hf, fechasVisibles);
+}
+
+// >>> VALIDACIÓN OBLIGATORIA: chequeo final antes de guardar
+function validarCamposDetalleObligatorios() {
+  const categoria = document.getElementById('categoria');
+  const tipo = document.getElementById('tipo_evento');
+  const nombre = document.getElementById('nombre_evento');
+  const alcance = document.getElementById('alcance');
+  const espacio = document.getElementById('espacio');
+  const participantes = document.getElementById('participantes');
+  const contenedor = document.getElementById('contenedorFechasHoras');
+  const inicio = document.getElementById('inicio_reserva');
+  const fin = document.getElementById('fin_reserva');
+  const hi = document.getElementById('hora_inicio');
+  const hf = document.getElementById('hora_fin');
+  const responsable = document.getElementById('responsable_espacio');
+
+  aplicarRequiredContextual();
+
+  const falta = (el) => el && !el.disabled && isVisible(el) && el.hasAttribute('required') && !String(el.value || '').trim();
+
+  if (falta(categoria)) return Swal.fire({icon:'error',title:'Falta Categoría',text:'Seleccione una categoría.'}), false;
+  if (falta(tipo)) return Swal.fire({icon:'error',title:'Falta Tipo de Evento',text:'Seleccione un tipo de evento.'}), false;
+  if (falta(nombre)) return Swal.fire({icon:'error',title:'Falta Nombre del Evento',text:'Ingrese el nombre del evento.'}), false;
+  if (falta(alcance)) return Swal.fire({icon:'error',title:'Falta Alcance',text:'Seleccione el alcance.'}), false;
+  if (falta(espacio)) return Swal.fire({icon:'error',title:'Falta Espacio',text:'Seleccione un espacio disponible para el evento.'}), false;
+  if (falta(participantes)) return Swal.fire({icon:'error',title:'Faltan Participantes',text:'Indique el número de participantes.'}), false;
+
+  const fechasVisibles = isVisible(contenedor) && contenedor.style.display !== 'none';
+  if (fechasVisibles) {
+    if (falta(inicio)) return Swal.fire({icon:'error',title:'Falta Fecha de Inicio',text:'Seleccione la fecha de inicio.'}), false;
+    if (falta(fin)) return Swal.fire({icon:'error',title:'Falta Fecha de Fin',text:'Seleccione la fecha de fin.'}), false;
+    if (falta(hi)) return Swal.fire({icon:'error',title:'Falta Hora de Inicio',text:'Seleccione la hora de inicio.'}), false;
+    if (falta(hf)) return Swal.fire({icon:'error',title:'Falta Hora de Fin',text:'Seleccione la hora de fin.'}), false;
+  }
+
+  if (falta(responsable)) return Swal.fire({icon:'error',title:'Falta Responsable',text:'Ingrese el responsable del evento.'}), false;
+
+  const n = parseInt(participantes.value, 10);
+  if (isNaN(n) || n < 1) {
+    Swal.fire({icon:'error',title:'Participantes inválido',text:'Ingrese un número válido (>=1).'});
+    return false;
+  }
+  return true;
+}
+
 document.getElementById("formularioEvento").addEventListener("submit", async function(e) {
   e.preventDefault();
+
+  const solicitante = document.getElementById("solicitante");
+  const modalidad = document.getElementById("modalidad");
+  const depto = document.getElementById("departamento");
+  const correo = document.getElementById("correo");
+
+  if (!solicitante.value.trim() || !modalidad.value || !depto.value || !correo.value.trim()) {
+    Swal.fire({icon:'error',title:'Complete los datos del solicitante',text:'Solicitante, Modalidad, Unidad y Correo son obligatorios.'});
+    return;
+  }
+
   const hoy = hoyISO();
-const tieneFechasInvalidas = eventos.some(ev => !ev.inicio_reserva || ev.inicio_reserva < hoy);
-if (tieneFechasInvalidas) {
-  Swal.fire({
-    icon: "error",
-    title: "Fechas inválidas",
-    text: "Todos los eventos deben tener fecha de inicio igual o mayor a la fecha actual."
-  });
-  return;
-}
-    
+  const tieneFechasInvalidas = eventos.some(ev => !ev.inicio_reserva || ev.inicio_reserva < hoy);
+  if (tieneFechasInvalidas) {
+    Swal.fire({ icon: "error", title: "Fechas inválidas", text: "Todos los eventos deben tener fecha de inicio igual o mayor a la fecha actual." });
+    return;
+  }
+
   if (eventos.length === 0) {
-      Swal.fire({ icon: "warning", title: "Sin eventos", text: "Debe añadir al menos un evento a la lista antes de enviar." });
-      return;
+    Swal.fire({ icon: "warning", title: "Sin eventos", text: "Debe añadir al menos un evento a la lista antes de enviar." });
+    return;
   }
 
   Swal.fire({
@@ -970,12 +971,10 @@ if (tieneFechasInvalidas) {
 
   const formData = new FormData();
   const nombreDepartamento = $('#departamento').val();
-  formData.append("solicitante", document.getElementById("solicitante").value);
-  formData.append("departamento", nombreDepartamento); 
-  formData.append("correo", document.getElementById("correo").value);
-
-  formData.append("modalidad", document.getElementById("modalidad").value); 
-
+  formData.append("solicitante", solicitante.value);
+  formData.append("departamento", nombreDepartamento);
+  formData.append("correo", correo.value);
+  formData.append("modalidad", modalidad.value);
   formData.append("eventos", JSON.stringify(eventos));
 
   try {
@@ -987,7 +986,8 @@ if (tieneFechasInvalidas) {
       eventos = [];
       mostrarTablaResumen();
       document.getElementById("detalleEvento").style.display = "none";
-       cargarUnidades();
+      cargarUnidades();
+      document.getElementById("contenedorBotonEnviar").style.display = "none";
     } else {
       throw new Error(data.message || "No se pudo completar el envío.");
     }
@@ -995,11 +995,10 @@ if (tieneFechasInvalidas) {
     Swal.fire({ icon: "error", title: "Error", html: err.message });
   }
 });
-// Inicializa al cargar
+
 document.addEventListener('DOMContentLoaded', () => {
   cargarUnidades();
 });
 </script>
 </body>
 </html>
-
